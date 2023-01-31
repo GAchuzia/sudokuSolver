@@ -1,0 +1,47 @@
+#include "sudoku.h"
+
+int ** createPuzzle(){
+    int ** puzzle;
+    int i, j;
+
+    // the whole indexed "map" for the sudoku board 
+    int array[9][9] = {0, 1, 9,     0, 0, 2,    0, 0, 0,
+                       4, 7, 0,     6, 9, 0,    0, 0, 1,
+                       0, 0, 0,     4, 0, 0,    0, 9, 0,
+
+                       8, 9, 4,     5, 0, 7,    0, 0, 0,
+                       0, 0, 0,     0, 0, 0,    0, 0, 0,
+                       0, 0, 0,     2, 0, 1,    9, 5, 8,
+                       
+                       0, 5, 0,     0, 0, 6,    0, 0, 0,
+                       6, 0, 0,     0, 2, 8,    0, 7, 9,
+                       0, 0, 0,     1, 0, 0,    8, 6, 0};
+    
+    puzzle = (int**)malloc(sizeof(int*)*9); //creates 9 arrays and allocates memory for them in the heap
+
+    // loop through each array and allocate space for them
+    for(i = 0; i < 9; i++){
+        puzzle[i] = (int*)malloc(sizeof(int)*9);
+
+        // loops through each number and assigns them to the puzzle array
+        for(j = 0; j < 9; j++){
+            puzzle[i][j] = array[i][j];
+        }
+    }
+
+    return puzzle;    
+
+}
+
+void printPuzzle(int ** puzzle){
+    int i, j;
+
+    printf(" ");
+    for(i = 0; i < 9; i++){
+        // print each row
+        for(j =0; j < 9; j++){
+            printf(" %d ", puzzle[i][j]);
+        }
+        printf("\n");
+    }
+}
