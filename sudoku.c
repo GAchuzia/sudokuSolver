@@ -1,6 +1,10 @@
 #include "sudoku.h"
 
 int main(){
-    createPuzzle();
+    int ** puzzle ;// maybe change varibale name for better form
+    
+    puzzle = createPuzzle();
+    
+    printPuzzle(puzzle);
     return 0;
 }
